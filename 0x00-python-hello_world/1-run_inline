@@ -1,0 +1,6 @@
+#!/bin/bash
+python_code="$PYCODE"
+tmp_file=$(mktemp)
+echo "$python_code" > "$tmp_file"
+python3 "$tmp_file"
+rm "$tmp_file"
