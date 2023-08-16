@@ -8,4 +8,4 @@ def best_score(a_dictionary):
         if max_score is None or score > max_score:
             max_score = score
             best_student = student
-    return(best_student)
+    return best_student
