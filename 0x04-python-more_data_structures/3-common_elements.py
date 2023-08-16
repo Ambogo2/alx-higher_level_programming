@@ -4,4 +4,4 @@ def common_elements(set_1, set_2):
     for elements in set_1:
         if elements in set_2:
             set_common.add(elements)
-    return(set_common)
+    return set_common
