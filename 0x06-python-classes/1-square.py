@@ -10,4 +10,4 @@ class Square:
         A method that initializes the square with size.
         :param size: size of a square.
         """
-        self._size = size
+        self.__size = size
