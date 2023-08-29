@@ -10,4 +10,7 @@ class Square:
         A method that initializes the square with size.
         :param size: size of a square.
         """
-        self.__size = size
+        try:
+            self.__size = size
+        except Exception as e:
+            print("Error occured", e)
