@@ -3,13 +3,9 @@
 
 
 class Square:
-    """
-    A class that defines a square.
-    This is an empty class that defines a square.
-    """
+    """A class that defines a square."""
     def __init__(self, size=0):
-        """
-        A method that initializes the square with size
+        """ A method that initializes the square with size
         Args:
             size(int): size of a square
         """
@@ -20,7 +16,5 @@ class Square:
         self.__size = size
 
     def area(self):
-        """
-        A method that returns the current area
-        """
+        """ A method that returns the current area"""
         return self._size*self.size
