@@ -4,9 +4,7 @@
 
 class Square:
     """
-    A class that defines a square.
-    This is a class that defines a square.
-    """
+    A class that defines a square."""
     def __init__(self, size=0):
         """
         initializes a square witha given size.
@@ -19,8 +17,7 @@ class Square:
     def size(self):
 
         """
-        gets the size of the square.
-        """
+        gets the size of the square."""
         return self.__size
 
     @size.setter
