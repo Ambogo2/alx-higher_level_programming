@@ -37,13 +37,14 @@ class Square:
     def area(self):
         """returns the current area of a square with # character."""
 
-        return self.__size*self.__size
+        return self.__size* 2
 
     def my_print(self):
         """prints the square"""
 
         for i in range(0, self._size):
-            [print('#', end="")for j in range(self.__size)]
-            print("")
+            print('#', end="")
+            for j in range(self.__size):
+                print("")
             if self.__size == 0:
                 print("")
