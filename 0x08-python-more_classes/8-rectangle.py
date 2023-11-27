@@ -8,6 +8,7 @@ class Rectangle:
     """
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -16,7 +17,6 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-        self.print_symbol = "#"
         Rectangle.number_of_instances += 1
 
     @property
@@ -62,13 +62,11 @@ class Rectangle:
         """
         Returns a string representation of the rectangle using print_symbol.
         """
-        if self.__width == 0 or self.__height == 0:
-            return ""
-
-        result = ""
-        for _ in range(self.__height):
-            result += str(self.print_symbol) * self.__width + "\n"
-        return result[:-1]  # Remove the last newline character
+        if self.__width > 0 or self.__height > 0:
+            result = ""
+            for i in range(self.__height):
+                result += str(self.print_symbol) * self.__width + "\n"
+        return result[:-1]
 
     def __repr__(self):
         """
@@ -95,6 +93,6 @@ class Rectangle:
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1.area() >= rect_2.area():
-            return rect_2
+            return rect_1
         else:
             return rect_2
