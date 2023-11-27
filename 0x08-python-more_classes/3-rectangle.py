@@ -17,11 +17,11 @@ class Rectangle():
         self.__width = width
         self.__height = height
 
-    @property 
+    @property
     def width(self):
         return self.__width
 
-    @width.setter 
+    @width.setter
     def width(self, value):
         if type(value) is not int:
             raise TypeError("width must be an integer")
@@ -46,7 +46,7 @@ class Rectangle():
         returns the area of a rectangle.
         """
         return self.__width * self.__height
-    
+
     def perimeter(self):
         """
         returns the perimeter of a rectangle.
@@ -54,6 +54,7 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width * 2) + (self.__height * 2)
+
     def __str__(self):
         """
         returns the string representation of rectangle.
@@ -61,7 +62,6 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             return ""
         result = ""
-        for _ in range (self.__height):
+        for _ in range(self.__height):
             result += "#" * self.__width + "\n"
         return result[:-1]
-
