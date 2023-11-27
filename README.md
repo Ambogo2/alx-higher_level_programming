@@ -8,5 +8,5 @@
 |[0x04-python-more_data_structures](https://github.com/Ambogo2/alx-higher_level_programming/tree/master/0x04-python-more_data_structures) | More Functions & loops               |
 |[0x05-python-exceptions](https://github.com/Ambogo2/alx-higher_level_programming/tree/master/0x05-python-exceptions)| Exception handling          |
 |[0x06-python-classes](https://github.com/Ambogo2/alx-higher_level_programming/tree/master/0x06-python-classes)     | Classes      |
-|[https://github.com/Ambogo2/alx-higher_level_programming/tree/master/0x08-python-more_classes) | 0x08-python-more_classes
+|[0x08-python-more_classes](https://github.com/Ambogo2/alx-higher_level_programming/tree/master/0x08-python-more_classes) | 0x08-python-more_classes
 
