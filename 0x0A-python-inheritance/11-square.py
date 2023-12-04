@@ -4,7 +4,6 @@
 
 class BaseGeometry:
     """ A class that defines BaseGeometry."""
-   
     def integer_validator(self, name, value):
         """
         integer_validator: validates if a given value is an integer
@@ -14,9 +13,10 @@ class BaseGeometry:
         return:
         """
         if type(value) is not int:
-            raise TypeError (f"{name} must be an integer")
+            raise TypeError(f"{name} must be an integer")
         if value <= 0:
-            raise ValueError (f"{name} must be greater than 0")
+            raise ValueError(f"{name} must be greater than 0")
+
 
 class Rectangle(BaseGeometry):
     """A class that inherits."""
@@ -41,6 +41,7 @@ class Rectangle(BaseGeometry):
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
 
+
 class Square(Rectangle):
     """
     A class that inherits from rectangle.
@@ -51,16 +52,18 @@ class Square(Rectangle):
         """
         super().__init__(size, size)
         self.__size = size
-        
+
     def area(self):
         """
         area: area of a square
         """
-        return super().area() #inherited from rectangle
+        return super().area()
 
     def __str__(self) -> str:
         """Return a string representation of the square."""
-        return f"[Square] {self.__size}/{self.__size}" 
+        return f"[Square] {self.__size}/{self.__size}"
+
+
 if __name__ == "__main__":
     square = Square(4)
     print(square)
