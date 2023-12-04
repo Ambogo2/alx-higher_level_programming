@@ -12,4 +12,3 @@ def is_same_class(obj, a_class):
     Return:True is onject is class instance, false otherwise.
     """
     return type(obj) is a_class
- 
