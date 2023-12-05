@@ -22,7 +22,7 @@ class Student:
         """
         Retrieves a dictionary representation of a Student instance.
         Returns:
-            dict: A dictionary containing the attributes of the Student instance.
+            dict: A dictionary containing the attributes.
         """
         # Create a dictionary representation of the instance
         student_dict = {
