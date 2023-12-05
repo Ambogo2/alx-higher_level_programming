@@ -23,9 +23,12 @@ class Student:
         Args:
             attrs (list): A list of strings specifying attributes to include
         Returns:
-            dict: A dictionary containing the specified attributes and their values.
+            dict: A dictionary containing the specified attributes.
         """
         if attrs is None or not isinstance(attrs, list):
             return self.__dict__
         else:
-            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
+            return {
+                attr: getattr(self, attr)
+                for attr in attrs if hasattr(self, attr)
+                }
