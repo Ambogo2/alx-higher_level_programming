@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module containing class_to_json function."""
 
+
 def class_to_json(obj):
     """
     Converts the attributes of an object to a dictionary.
