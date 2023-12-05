@@ -3,9 +3,8 @@
 
 
 class Student:
-    """
-    A class that defines a student
-    """
+    """A class that defines a student."""
+
     def __init__(self, first_name, last_name, age):
         """
         Initializes a Student instance with first_name, last_name, and age.
@@ -18,17 +17,15 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance.
+        Args:
+            attrs (list): A list of strings specifying attributes to include
         Returns:
-            dict: A dictionary containing the attributes of the Student instance.
+            dict: A dictionary containing the specified attributes and their values.
         """
-        # Create a dictionary representation of the instance
-        student_dict = {
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'age': self.age
-        }
-
-        return student_dict
+        if attrs is None or not isinstance(attrs, list):
+            return self.__dict__
+        else:
+            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
