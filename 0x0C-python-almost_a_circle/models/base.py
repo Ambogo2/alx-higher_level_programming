@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""
-This is a module for base class
-"""
+"""This is a module for base class"""
 
-Class Base:
+import json
+
+class Base:
     """defines class base"""
 
     __nb_objects = 0
@@ -17,4 +17,3 @@ Class Base:
         else:
            base. __nb_objects += 1
            self.id = base. __nb_objects
-
