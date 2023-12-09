@@ -16,10 +16,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """initializes instances of rectangle class"""
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -89,4 +89,20 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {} {}".format(
             self.id, self.__x, self.__y, self.__width, self.__height) 
     
-    def update(self, *args, *kwargs):
+    def update(self, *args, **kwargs):
+        """updates the attributes of the rectangle"""
+
+        attributes = ['id', 'width', 'height', 'x', 'y']
+
+        for i, value in enumerate(args):
+            setattr(self, attributes[i], value)
+
+        for key, value in kwargs.items():
+            if key in attributes:
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Converts class instance to a dictionary"""
+        return {'id':self.id, 'width':self.width,
+                'height':self.height, 'x':self.x, 'y':self.y}
+        
