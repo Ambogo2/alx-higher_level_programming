@@ -2,6 +2,7 @@
 """This is a module for base class"""
 import json
 import csv
+import sys
 
 
 class Base:
