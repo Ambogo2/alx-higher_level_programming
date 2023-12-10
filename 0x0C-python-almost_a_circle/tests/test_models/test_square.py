@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Unittest for square class"""
+import io
+import sys
 from models.base import Base
 from models.rectangle import Square
 import unittest

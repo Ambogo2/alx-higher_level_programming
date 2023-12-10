@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Unittest for rectangle class"""
 
+import io
+import sys
 from models.base import Base
 from models.rectangle import Rectangle
 import unittest
