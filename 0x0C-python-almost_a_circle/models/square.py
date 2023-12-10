@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module containing square subclass that inherits from rectangle"""
-
 from models.base import Rectangle
+
 
 class Square(Rectangle):
     """Child class that inherits from rectangle"""

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is a module for subclass rectangle that inherits from base"""
-
 from models.base import base
+
 
 class Rectangle(Base):
     """
@@ -104,5 +104,4 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Converts class instance to a dictionary"""
         return {'id':self.id, 'width':self.width,
-                'height':self.height, 'x':self.x, 'y':self.y}
-        
+                'height':self.height, 'x':self.x, 'y':self.y}     
