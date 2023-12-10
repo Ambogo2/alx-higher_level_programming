@@ -16,45 +16,45 @@ class Base:
         if id is not None:
             self.id = id
         else:
-           base. __nb_objects += 1
-           self.id = base. __nb_objects
+            base. __nb_objects += 1
+            self.id = base. __nb_objects
 
-    @staticmethod   
+    @staticmethod
     def to_json_string(list_dictionaries):
-        """ 
+        """
         returns the JSON string representation of list_dictionaries
         args:
             list dictionaries:dictionary lists
         """
-        if list_dictionaries is None or list_dictionaries  == []:
-             return "[]"
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """ 
+        """
         saves a list of objects to a JSON file
         Args:
             list_obj:list objects to be saved
         """
-        filename= Cls.__name__ +."json"
+        filename = Cls.__name__ + ."json"
         with open(filename, 'w') as file:
             if list_objs is None:
-                 file.write("[]")
+                file.write("[]")
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
                 file.write(Base.to_json_string(list_dicts))
-            
+
     @staticmethod
     def from_json_string(json_string):
         """
         method that desirializes JSON string to a pyhon object
-        
+
         Args:
         json_string: A JSON-formatted string to be deserialized.
 
         Returns:
-             A Python list or dictionary representing the deserialized JSON data.
+             A Python list or dictionary repr deserialized JSON data.
 
        """
         if json_string is None or json_string == "[]":
@@ -124,7 +124,8 @@ class Base:
                     fieldnames = ["id", "size", "x", "y"]
 
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items()) for d in list_dicts]
+                list_dicts = [dict([k, int(v)]
+                                   for k, v in d.items()) for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
 
         except IOError:
