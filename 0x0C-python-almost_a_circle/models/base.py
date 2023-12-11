@@ -17,8 +17,8 @@ class Base:
         if id is not None:
             self.id = id
         else:
-            base. __nb_objects += 1
-            self.id = base. __nb_objects
+            Base. __nb_objects += 1
+            self.id = Base. __nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -38,7 +38,7 @@ class Base:
         Args:
             list_obj:list objects to be saved
         """
-        filename = Cls.__name__ + ."json"
+        filename = cls.__name__ + ".json"
         with open(filename, 'w') as file:
             if list_objs is None:
                 file.write("[]")
@@ -72,7 +72,7 @@ class Base:
         Returns:
               An instance of the class with all attributes set
         """
-        if dictionary and dictionary ! = {}:
+        if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 dummy_instance = cls(1, 1)
             else:
@@ -101,17 +101,19 @@ class Base:
             None
         """
         filename = cls.__name__ + ".csv"
+
         with open(filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-        if cls.__name__ == "Rectangle":
-            fieldnames = ["id", "width", "height", "x", "y"]
-        else:
-            fieldnames = ["id", "size", "x", "y"]
 
-        csv_writer.writerow(fieldnames)
+            if cls.__name__ == "Rectangle":
+                fieldnames = ["id", "width", "height", "x", "y"]
+            else:
+                fieldnames = ["id", "size", "x", "y"]
 
-        for obj in list_objs:
-            csv_writer.writerow([getattr(obj, attr) for attr in fieldnames])
+            csv_writer.writerow(fieldnames)
+
+            for obj in list_objs:
+                csv_writer.writerow([getattr(obj, attr) for attr in fieldnames])
 
     @classmethod
     def load_from_file_csv(cls):
@@ -125,9 +127,11 @@ class Base:
                     fieldnames = ["id", "size", "x", "y"]
 
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)]
-                                   for k, v in d.items()) for d in list_dicts]
+                next(list_dicts)
+            
+                list_dicts = [dict([k, int(v)] for k, v in d.items()) for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
 
         except IOError:
             return []
+

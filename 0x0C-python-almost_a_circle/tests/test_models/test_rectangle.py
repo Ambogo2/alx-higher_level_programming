@@ -9,7 +9,7 @@ import unittest
 
 class TestRectangle(unittest.TestCase):
 
-    def test_init_with valid args(self):
+    def test_init_with_valid_args(self):
         rect = Rectangle(width=3, height=10, x=1, y=2, id=1)
         self.assertEqual(rect.width, 3)
         self.assertEqual(rect.height, 10)

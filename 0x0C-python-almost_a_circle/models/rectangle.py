@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This is a module for subclass rectangle that inherits from base"""
-from models.base import base
+
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -29,7 +30,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """sets and validates width"""
-        self __width = width
+        self.__width = width
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width < 0:
@@ -43,7 +44,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """sets and validates height"""
-        self __height = height
+        self.__height = height
         if type(height) is not int:
             raise TypeError("height must be an integer")
         if height < 0:
@@ -55,11 +56,13 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, width):
+    def x(self, x):
         """sets and validates x"""
-        self __x = x
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
+        self.__x = x
 
     @property
     def y(self):
@@ -69,13 +72,13 @@ class Rectangle(Base):
     @width.setter
     def y(self, y):
         """sets and validates y"""
-        self __y = y
+        self.__y = y
         if y < 0:
             raise ValueError("y must be >= 0")
 
     def area(self):
         """returns the area of the rectangle"""
-        return __width ** __height
+        return self.__width * self.__height
 
     def display(self):
         """prints '#' and takes care of x and y """
@@ -86,20 +89,21 @@ class Rectangle(Base):
 
     def __str__(self):
         """overriding the __str__ method"""
-        return "[Rectangle] ({}) {}/{} - {} {}".format(
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """updates the attributes of the rectangle"""
 
-        attributes = ['id', 'width', 'height', 'x', 'y']
+        attributes = ['id', 'size', 'x', 'y']
 
-        for i, value in enumerate(args):
-            setattr(self, attributes[i], value)
-
-        for key, value in kwargs.items():
-            if key in attributes:
-                setattr(self, key, value)
+        if args:
+            for i, value in enumerate(args):
+                setattr(self, attributes[i], value)
+        else:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """Converts class instance to a dictionary"""

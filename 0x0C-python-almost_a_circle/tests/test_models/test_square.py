@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 """Unittest for square class"""
+
 import io
 import sys
 from models.base import Base
-from models.rectangle import Square
+from models.square import Square
 import unittest
 
 
 class TestSquare(unittest.TestCase):
     def test_init(self):
-        square_instance = Square(size=5, x=2, y=3, id=1)
+        square_instance = Square(size=5, x=2, y=4, id=1)
         self.assertEqual(square_instance.size, 5)
         self.assertEqual(square_instance.width, 5)
         self.assertEqual(square_instance.height, 5)
@@ -18,7 +19,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square_instance.id, 1)
 
     def test_str(self):
-        square_instance = Square(size=4, x=1, y=2, id=10)
+        square_instance = Square(4, 1, 2, 10)
         expected_result = "[Square] (10) 1/2 - 4"
         self.assertEqual(str(square_instance), expected_result)
 
