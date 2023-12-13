@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 import sys
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+from save_to_json_file import save_to_json_file
+from load_from_json_file import load_from_json_file
 
-def adds_all_arguments ():
+def adds_all_arguments(arguments):
     try:
         existing_data = load_from_json_file('add_item.json')
     except FileNotFoundError:
@@ -18,6 +18,5 @@ if __name__ == "__main__":
         print("Usage: python script.py arg1 arg2 arg3 ...")
         sys.exit(1)
 
-    add_arguments_and_save(arguments)
-
+    adds_all_arguments(arguments)
     print(f"Arguments added and saved to 'add_item.json'")
