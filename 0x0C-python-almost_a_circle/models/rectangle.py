@@ -69,7 +69,7 @@ class Rectangle(Base):
         """retrieves y"""
         return self.__y
 
-    @width.setter
+    @y.setter
     def y(self, y):
         """sets and validates y"""
         self.__y = y
@@ -95,7 +95,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """updates the attributes of the rectangle"""
 
-        attributes = ['id', 'size', 'x', 'y']
+        attributes = ['id', 'width', 'height', 'x', 'y']
 
         if args:
             for i, value in enumerate(args):
