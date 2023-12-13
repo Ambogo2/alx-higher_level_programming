@@ -1,7 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
+
 import sys
 from save_to_json_file import save_to_json_file
 from load_from_json_file import load_from_json_file
+
 
 def adds_all_arguments(arguments):
     try:
@@ -10,6 +12,7 @@ def adds_all_arguments(arguments):
         existing_data = []
     existing_data.extend(arguments)
     save_to_json_file(existing_data, 'add_item.json')
+
 
 if __name__ == "__main__":
     arguments = sys.argv[1:]
