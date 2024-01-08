@@ -2,7 +2,7 @@
 """ Defines a Class that inherits from Rectangle """
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
-rectangle = __import__('9-rectangle').rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
