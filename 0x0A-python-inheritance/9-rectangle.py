@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """ Define a Class BaseGeometry """
 
-BaseGeometry = __import__(7-base_geometry).BaseGeometry
+
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class Rectangle(BaseGeometry):
     """A subclass of BaseGeometry."""
@@ -14,7 +16,7 @@ class Rectangle(BaseGeometry):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
-     def area(self):
+    def area(self):
         """
         area: area of a rectangle
         """
