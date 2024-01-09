@@ -7,7 +7,7 @@ from 5-save_to_json_file import save_to_json_file
 from 6-load_from_json_file import load_from_json_file
 
 
-def adds_all_arguments(arguments):
+def adds_arguments(arguments):
     """
     adds_arguments:adds arguments to a list.
     args:
@@ -28,5 +28,5 @@ if __name__ == "__main__":
         print("Usage: python script.py arg1 arg2 arg3 ...")
         sys.exit(1)
 
-    adds_all_arguments(arguments)
+    adds_arguments(arguments)
     print(f"Arguments added and saved to 'add_item.json'")
