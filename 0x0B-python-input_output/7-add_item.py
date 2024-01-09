@@ -7,7 +7,7 @@ from 5-save_to_json_file import save_to_json_file
 from 6-load_from_json_file import load_from_json_file
 
 
-def adds_arguments(arguments):
+def adds_all_arguments(arguments):
     """
     adds_arguments:adds arguments to a list.
     args:
