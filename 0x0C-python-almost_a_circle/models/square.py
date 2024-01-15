@@ -12,9 +12,9 @@ class Square(Rectangle):
         """
         initializes instances of square class.
         """
-        super().__init__(id, size, x, y)
+        super().__init__(size, size, x, y, id)
         self.size = size
-    
+
     @property
     def size(self):
         """Retrieve the size of the square."""
@@ -36,16 +36,22 @@ class Square(Rectangle):
         attributes = ['id', 'width', 'height', 'x', 'y']
         if args:
             for i, value in enumerate(args):
-                setattr(self, attributes[i], value)
-        elif kwargs:
+                if i == 0:
+                    setattr(self, 'id', value)
+                elif i == 1:
+                    setattr(self, 'size', value)
+                elif i == 2:
+                    setattr(self, 'x', value)
+                elif i == 3:
+                    setattr(self, 'y', value)
+        else:
             for key, value in kwargs.items():
-                if key in attributes:
-                    setattr(self, key, value)
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """Converts class instance of square to a dictionary"""
         return {
-            'id': self.id, 
+            'id': self.id,
             'width': self.size,
             'x': self.x,
             'y': self.y}

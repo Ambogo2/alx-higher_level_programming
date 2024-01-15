@@ -4,6 +4,7 @@ import json
 import csv
 import turtle
 
+
 class Base:
     """
     The base class.
@@ -67,7 +68,7 @@ class Base:
         """
         Method that creates an instance with attributes already set.
         Args:
-            dictionary: A dictionary with keys corresponding to class attributes.
+            dictionary: A dictionary with keys of class attributes.
         Returns:
             An instance of the class with all attributes set.
         """
@@ -127,7 +128,7 @@ class Base:
 
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
                 next(list_dicts)
-            
+
                 list_dicts = [dict([k, int(v)] for k, v in d.items()) for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
 

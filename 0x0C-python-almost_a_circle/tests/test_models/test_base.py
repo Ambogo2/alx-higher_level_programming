@@ -15,10 +15,10 @@ class TestBaseInstantiation(unittest.TestCase):
 
     def test_bool_id(self):
         obj_true = Base(id=True)
-        obj_false = base(id=False)
+        obj_false = Base(id=False)
         result_true = obj_true.id
         result_false=obj_false.id
-        self.assertion(result_true, True)
+        self.assertEqual(result_true, True)
         self.assertEqual(result_false, False)
         
     def test_float_id(self):
@@ -38,7 +38,13 @@ class TestBaseInstantiation(unittest.TestCase):
 
 class TestBase_to_json_string(unittest.TestCase):
     """unittest for testing to json sring."""
-    
+    def Test_to_ison_square_type(self):
+        sqr = Square(2, 3, 1, 1, 1)
+        self.assertEqual(str, type(Base.to_json_string([sqr.to_dictionary()])))
+
+    def Test_to_ison_rectangle_type(self):
+        rect = Square(12, 8, 3, 2, 1)
+        self.assertEqual(str, type(Base.to_json_string([rect.to_dictionary()])))
 
 
 if __name__ == '__main__':
