@@ -5,5 +5,5 @@ SELECT city, AVG(value) AS temps
 FROM temperatures
 WHERE month = 7 or month = 8
 GROUP BY city
-ORDER BY temps DESC;
+ORDER BY temps DESC
 LIMIT 3;
