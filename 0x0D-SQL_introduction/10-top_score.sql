@@ -2,4 +2,4 @@
 
 SELECT score, name
 FROM hbtn_0c_0
-ORDER BY score;
+ORDER BY score DESC;
