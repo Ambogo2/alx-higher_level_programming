@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """a script that lists all states from the database"""
-if "__name__" == "__main__":
+
+if __name__ == "__main__":
     import MySQLdb
     from sys import argv
 
     # connecting to MySQL database
-    db = MySQLdb.connect(host="localhost",port=3307,user="argv=[1]"password="argv[2]",database="argv[3]")
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
 
     #getting a cursor
     cur = db.cursor()
