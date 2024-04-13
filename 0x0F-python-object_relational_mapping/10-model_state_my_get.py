@@ -16,10 +16,10 @@ if __name__ == "__main__":
     my_session = my_session_maker()
 
     for state in my_session.query(State):
-    if sys.argv[4] == state.name:
-        print("{}".format(state.id))
-        break
-    else:
-        print("Not found")
+        if sys.argv[4] == state.name:
+            print("{}".format(state.id))
+            break
+        else:
+            print("Not found")
 
     my_session.close()
