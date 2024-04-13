@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""a script that lists all states from the database"""
+"""module that connects a script to a database"""
 
 if __name__ == "__main__":
     import MySQLdb
-    from sys import argv
+    import sys
 
     # connecting to MySQL database
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
+    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
     #getting a cursor
     cur = db.cursor()
@@ -15,10 +15,10 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
     #obtaining query results
-    result = cur.fetchall()
+    rows = cur.fetchall()
 
     #printing resuts 
-    for row in result:
+    for row in rows:
         print(row)
 
     #close cursor
