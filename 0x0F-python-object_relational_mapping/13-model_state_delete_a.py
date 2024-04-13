@@ -7,10 +7,11 @@ from sqlalchemy import create_engine
 import sys
 
 if __name__ == "__main__":
-    connection_string = "mysql+mysqldb://{}:{}@localhost/{}".format(sys.argv[1], sys.argv[2], sys.argv[3])
+    connection_string = "mysql+mysqldb://{}:{}@localhost/{}"
+    .format(sys.argv[1], sys.argv[2], sys.argv[3])
     engine = create_engine(connection_string, pool_pre_ping=True)
 
-   # Create session maker
+    # Create session maker
     Session = sessionmaker(bind=engine)
 
     # Create session
