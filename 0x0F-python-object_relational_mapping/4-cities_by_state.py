@@ -6,24 +6,29 @@ if __name__ == "__main__":
     from sys import argv
 
     # connecting to MySQL database
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3])
 
-    #getting a cursor
+    # getting a cursor
     cur = db.cursor()
 
-    #executing a query
+    # executing a query
     state_name = argv[4]
     cur.execute("""SELECT cities.id, cities.name, states.name
-                FROM cities JOIN states ON states.id = cities.states_id 
-                ORDER BY cities.id ASC;""")
+                FROM cities
+                JOIN states ON states.id = cities.states_id
+                ORDER BY cities.id""")
 
-    #obtaining query results
+    # obtaining query results
     result = cur.fetchall()
 
-    #printing resuts 
+    # printing resuts
     for row in result:
         print(row)
 
-    #close cursor
+    # close cursor
     cur.close()
-    
