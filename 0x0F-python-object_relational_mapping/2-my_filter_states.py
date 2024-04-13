@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that Filters states by user input"""
+"""module that connects a script to a database"""
 
 if __name__ == "__main__":
     import MySQLdb
