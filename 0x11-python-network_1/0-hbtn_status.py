@@ -4,8 +4,8 @@
 import urllib.request
 
 if __name__ == "__main__":
-
-    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status/') as request:
+    url = 'https://alx-intranet.hbtn.io/status/'
+    with urllib.request.urlopen(url) as request:
         html_bytes = request.read()
         html = html_bytes.decode('utf-8')
 
