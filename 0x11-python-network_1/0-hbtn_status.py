@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Takes in a URL and sends a request to it
+""" a Python script that fetches https://alx-intranet.hbtn.io/status """
 
 import urllib.request
 
