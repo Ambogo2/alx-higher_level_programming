@@ -2,6 +2,7 @@
 """connects a python script to a database"""
 
 from model_state import Base, State
+from model_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 import sys
@@ -16,12 +17,12 @@ if __name__ == "__main__":
     # Create session
     session = Session()
 
-    # Query for State and City objects with a join condition
-    result = session.query(State, City).filter(State.id == City.state_id).all()
+    # Query State and City objects joined by State.id == City.state_id
+    result = session.query(State, City).filter(State.id == City.state_id).order_by(City.id).all()
 
-    # Print the result
+    # Print the result in the required format
     for state, city in result:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+        print(f"{state.name}: ({city.id}) {city.name}")
 
     # Close session
     session.close()
