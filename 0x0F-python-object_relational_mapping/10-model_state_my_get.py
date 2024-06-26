@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""connects a python script to a database"""
+"""Connects a Python script to a database and prints the State object with the given name"""
 
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
@@ -7,19 +7,34 @@ from sqlalchemy import create_engine
 import sys
 
 if __name__ == "__main__":
-    connection_string = "mysql+mysqldb://{}:{}@localhost/{}".format(sys.argv[1], sys.argv[2], sys.argv[3])
+    # Check if all necessary arguments are provided
+    if len(sys.argv) != 5:
+        print("Usage: ./script_name.py <mysql_username> <mysql_password> <database_name> <state_name>")
+        sys.exit(1)
+
+    # Construct connection string
+    connection_string = f"mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost:3306/{sys.argv[3]}"
+
+    # Create SQLAlchemy engine
     engine = create_engine(connection_string, pool_pre_ping=True)
 
-    my_session_maker = sessionmaker(bind=engine)
+    # Bind the engine to the Base class
+    Base.metadata.create_all(engine)
 
-    # instance of session
-    my_session = my_session_maker()
+    # Create a configured "Session" class
+    Session = sessionmaker(bind=engine)
 
-    for state in my_session.query(State):
-        if sys.argv[4] == state.name:
-            print("{}".format(state.id))
-            break
-        else:
-            print("Not found")
+    # Create a Session instance
+    session = Session()
 
-    my_session.close()
+    # Query for the State object with the given state_name
+    state = session.query(State).filter(State.name == sys.argv[4]).first()
+
+    # Check if state exists
+    if state is None:
+        print("Not found")
+    else:
+        print(state.id)
+
+    # Close the session
+    session.close()
