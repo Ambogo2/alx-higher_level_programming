@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module that connects a script to a database"""
+"""Module that lists all cities of a state from the database hbtn_0e_4_usa"""
 
 if __name__ == "__main__":
     import MySQLdb
@@ -17,20 +17,20 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # executing a query
-    state_name = argv[4]
     cur.execute("""SELECT cities.name
-            FROM cities
-            INNER JOIN states
-            ON cities.state_id = states.id
-            WHERE states.name = %s
-            ORDER BY cities.id""", (argv[4],))
+                   FROM cities
+                   INNER JOIN states
+                   ON cities.state_id = states.id
+                   WHERE states.name = %s
+                   ORDER BY cities.id ASC""", (argv[4],))
 
-    # obtaining query results(cities)
+    # obtaining query results (cities)
     result = cur.fetchall()
 
     # printing the cities
-    cities = [city[0] for city in result()]
+    cities = [city[0] for city in result]
     print(", ".join(cities))
 
-    # close cursor
+    # close cursor and connection
     cur.close()
+    db.close()
