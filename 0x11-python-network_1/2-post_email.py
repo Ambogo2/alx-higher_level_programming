@@ -15,5 +15,5 @@ if __name__ == "__main__":
 
     # making a post request
     with urllib.request.urlopen(url, data=data_encoded) as response:
-        #reading and decoding response body
+        # reading and decoding response body
         print(response.read().decode('utf-8'))
