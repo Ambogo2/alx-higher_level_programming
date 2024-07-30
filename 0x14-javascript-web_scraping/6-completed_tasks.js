@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 // Import the module
-const request = require("request");
+const request = require('request');
 
 // The first argument is the API URL
 const apiUrl = process.argv[2];
