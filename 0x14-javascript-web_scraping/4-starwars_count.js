@@ -1,41 +1,23 @@
 #!/usr/bin/node
 
-// Import module
-const request = require("request");
+// Import the module
+const request = require('request');
 
-const apiUrl = "https://swapi-api.alx-tools.com/api/films/";
+// The first argument is the API URL
+const apiUrl = process.argv[2];
 
-// Function to fetch films and count appearances of a specific character
-function countMoviesWithCharacter(apiUrl, characterId) {
-  request(apiUrl, function (error, response, body) {
-    if (error) {
-      console.error("Error:", error);
-      return;
-    }
+// Make an HTTP GET request to the API
+request(apiUrl, function (error, response, body) {
+  if (!error) {
+    // Parse the JSON response
+    const results = JSON.parse(body).results;
 
-    try {
-      const films = JSON.parse(body).results;
-      let count = 0;
-
-      films.forEach((film) => {
-        // Check if the characterId is in the film's characters list
-        const characterUrls = film.characters;
-        characterUrls.forEach((url) => {
-          if (url.includes(characterId)) {
-            count++;
-          }
-        });
-      });
-
-      console.log(count);
-    } catch (parseError) {
-      console.error("Error parsing JSON:", parseError);
-    }
-  });
-}
-
-// Character ID for Wedge Antilles
-const characterId = "18";
-
-// Count and print the number of movies featuring Wedge Antilles
-countMoviesWithCharacter(apiUrl, characterId);
+    // Count number of movies where "Wedge Antilles" is present
+    const moviesWithWedge = results.reduce((count, movie) => {
+      return movie.characters.find((character) => character.endsWith('/18/'))
+        ? count + 1 // If found
+        : count; // If not found
+    }, 0); // Initializing count to zero
+    console.log(moviesWithWedge);
+  }
+});
