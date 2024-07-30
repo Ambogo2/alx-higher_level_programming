@@ -1,15 +1,17 @@
 #!/usr/bin/node
 
-// Import module
-const request = require("request");
+// Import the module
+const request = require('request');
 
 const url = process.argv[2];
 
-// Make an HTTP GET request to the URL
+// Make an HTTP GET request to the specified URL
 request(url, function (error, response, body) {
+  // Check for errors during the request
   if (error) {
     console.error(error);
   } else {
-    console.log("Code:", response.statusCode);
+    // If there are no errors, print the HTTP status code
+    console.log('code:', response.statusCode);
   }
 });
